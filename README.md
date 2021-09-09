@@ -1,15 +1,19 @@
 # sample-circuitsim-tester
-This is a sample for a CircuitSim tester that uses the circuitsim-tester library. The tested file is the _alu.sim_ file.
 
-To run the tests locally, run `./gradlew run`
+This is a sample for a CircuitSim tester that uses the circuitsim-tester library. The tested file is the `and.sim` file.
 
-To distribute tests, run `./gradlew jar` and find the jar-file in the `build/libs` directory.
+To build the tester jar, go to the `tester/` directory, run `./gradlew jar` and find the jar file in the `build/libs` directory.
 
 ## Making your own tester
+
 1. Clone this repository
 2. Remove the `.git` directory.
-3. Edit the tester name in `settings.gradle`.
-4. Add any tests into the `src/main/java/io/zucchini/samplecircuitsimtester/` path just like the `ANDTests.java` file. They will be discovered automatically.
-5. If you want, change the groupId in `build.gradle`.
-6. If you want, change the package the sources are in. Make sure to update tha main class string in `build.gradle` afterwards.
-7. Run your tests and profit.
+3. Edit the tester name in `tester/settings.gradle`.
+4. Add a GitHub Package Registry token to `tester/gradle.properties`, as described [here](https://github.com/zucchini/circuitsim-tester#getting-started)
+5. Add any tests into the `tester/src/main/java/io/zucchini/samplecircuitsimtester/` path, just like the `ANDTests.java` file. They will be discovered automatically.
+6. If you want, change the `groupId` in `tester/build.gradle`.
+7. If you want, change the package the sources are in. Make sure to update tha `mainClassName` string in `tester/build.gradle` afterwards.
+8. Build the autograder jar with `./gradlew jar` in the `tester/` directory
+9. Run the jar from the `files/` directory and check for failing test cases
+10. Profit!
+

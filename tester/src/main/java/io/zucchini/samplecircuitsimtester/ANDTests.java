@@ -2,7 +2,7 @@ package io.zucchini.samplecircuitsimtester;
 
 import io.zucchini.circuitsimtester.api.InputPin;
 import io.zucchini.circuitsimtester.api.OutputPin;
-import io.zucchini.circuitsimtester.api.SubcircuitPin;
+import io.zucchini.circuitsimtester.api.SubcircuitComponent;
 import io.zucchini.circuitsimtester.api.SubcircuitTest;
 import io.zucchini.circuitsimtester.extension.CircuitSimExtension;
 import org.junit.jupiter.api.DisplayName;
@@ -21,13 +21,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(CircuitSimExtension.class)
 @SubcircuitTest(file="and.sim", subcircuit="AND")
 public class ANDTests {
-    @SubcircuitPin(bits=1)
+    @SubcircuitComponent(bits=1)
     private InputPin a;
 
-    @SubcircuitPin(bits=1)
+    @SubcircuitComponent(bits=1)
     private InputPin b;
 
-    @SubcircuitPin(bits=1)
+    @SubcircuitComponent(bits=1)
     private OutputPin out;
 
     @ParameterizedTest(name="a:{0}, b:{1}, AND(a, b) → out:{2}")

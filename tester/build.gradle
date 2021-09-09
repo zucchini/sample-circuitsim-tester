@@ -1,0 +1,45 @@
+group 'io.zucchini.sample-circuitsim-tester'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+mainClassName = 'io.zucchini.samplecircuitsimtester.Tester'
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url "https://maven.pkg.github.com/zucchini/circuitsim-tester"
+        credentials {
+            def user = project.findProperty("gpr.user")
+            if (!user) {
+                throw new GradleException("Missing GPR user.\nAdd an entry 'gpr.user=<GitHub username here>' to your 'gradle.properties' file.\nFor more information, see https://github.com/zucchini/circuitsim-tester#getting-started")
+            }
+            def key = project.findProperty("gpr.key")
+            if (!key) {
+                throw new GradleException("Missing GPR key.\nAdd an entry 'gpr.key=<GitHub token here>' to your 'gradle.properties' file.\nFor more information, see https://github.com/zucchini/circuitsim-tester#getting-started")
+            }
+            username = user
+            password = key
+        }
+    }
+}
+
+dependencies {
+    implementation 'io.zucchini.circuitsim-tester:circuitsim-tester:v2.4.2'
+    implementation group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    manifest {
+        attributes('Main-Class': mainClassName)
+    }
+
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+}
