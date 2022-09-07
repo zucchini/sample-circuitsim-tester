@@ -1,6 +1,6 @@
 # sample-circuitsim-tester
 
-This is a sample for a CircuitSim tester that uses the circuitsim-tester library. The tested file is the `and.sim` file.
+This is a sample for a CircuitSim tester that uses the circuitsim-tester library. The tested `.sim` files can be found in the `tester` directory. Note that this tester includes a number of Java files that each test a different `.sim`.
 
 To build the tester jar, go to the `tester/` directory, run `./gradlew jar` and find the jar file in the `build/libs` directory.
 
