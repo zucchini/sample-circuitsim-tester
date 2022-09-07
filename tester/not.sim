@@ -1,5 +1,5 @@
 {
-  "version": "1.8.3 2110 version",
+  "version": "1.8.4 2110 version",
   "globalBitSize": 1,
   "clockSpeed": 1,
   "circuits": [
@@ -7,15 +7,38 @@
       "name": "not",
       "components": [
         {
-          "name": "com.ra4king.circuitsim.gui.peers.gates.NotGatePeer",
-          "x": 22,
-          "y": 10,
+          "name": "com.ra4king.circuitsim.gui.peers.wiring.SimpleTransistorPeer",
+          "x": 23,
+          "y": 12,
+          "properties": {
+            "Type": "N-Type",
+            "Gate Location": "Left/Top",
+            "Label location": "NORTH",
+            "Label": ""
+          }
+        },
+        {
+          "name": "com.ra4king.circuitsim.gui.peers.wiring.ConstantPeer",
+          "x": 24,
+          "y": 4,
           "properties": {
             "Label location": "NORTH",
-            "Negate 0": "No",
-            "Label": "",
-            "Direction": "EAST",
-            "Bitsize": "1"
+            "Label": "VDD",
+            "Value": "1",
+            "Direction": "SOUTH",
+            "Bitsize": "1",
+            "Base": "BINARY"
+          }
+        },
+        {
+          "name": "com.ra4king.circuitsim.gui.peers.wiring.SimpleTransistorPeer",
+          "x": 23,
+          "y": 6,
+          "properties": {
+            "Type": "P-Type",
+            "Gate Location": "Left/Top",
+            "Label location": "NORTH",
+            "Label": ""
           }
         },
         {
@@ -32,18 +55,6 @@
         },
         {
           "name": "com.ra4king.circuitsim.gui.peers.wiring.PinPeer",
-          "x": 21,
-          "y": 24,
-          "properties": {
-            "Label location": "WEST",
-            "Label": "",
-            "Is input?": "Yes",
-            "Direction": "EAST",
-            "Bitsize": "1"
-          }
-        },
-        {
-          "name": "com.ra4king.circuitsim.gui.peers.wiring.PinPeer",
           "x": 29,
           "y": 10,
           "properties": {
@@ -52,6 +63,19 @@
             "Is input?": "No",
             "Direction": "WEST",
             "Bitsize": "1"
+          }
+        },
+        {
+          "name": "com.ra4king.circuitsim.gui.peers.wiring.ConstantPeer",
+          "x": 24,
+          "y": 16,
+          "properties": {
+            "Label location": "SOUTH",
+            "Label": "Ground",
+            "Value": "0",
+            "Direction": "NORTH",
+            "Bitsize": "1",
+            "Base": "BINARY"
           }
         }
       ],
@@ -63,6 +87,42 @@
           "isHorizontal": true
         },
         {
+          "x": 22,
+          "y": 8,
+          "length": 1,
+          "isHorizontal": true
+        },
+        {
+          "x": 22,
+          "y": 8,
+          "length": 3,
+          "isHorizontal": false
+        },
+        {
+          "x": 22,
+          "y": 11,
+          "length": 3,
+          "isHorizontal": false
+        },
+        {
+          "x": 22,
+          "y": 14,
+          "length": 1,
+          "isHorizontal": true
+        },
+        {
+          "x": 25,
+          "y": 10,
+          "length": 1,
+          "isHorizontal": false
+        },
+        {
+          "x": 25,
+          "y": 11,
+          "length": 1,
+          "isHorizontal": false
+        },
+        {
           "x": 25,
           "y": 11,
           "length": 4,
@@ -72,6 +132,8 @@
     }
   ],
   "revisionSignatures": [
-    "CTg0OTg5MjAyYzY0NDg1YjkyOGYyMWYxZDExZDZhNGE1ODU1MDkwM2EyNzJiZGJkOTkzNDM0YWJkYzgyZWZmMjkJMTY2MjUxOTk3OTYyNQkyMDQyOTNiYmM5MjYwYmMwMTljMTgwZWIwOWY4NjQ5NmJmMjY0MGYxNmVjNzhmZmJiNWU3YzJkMTk0MjhhZjU4"
+    "CTg0OTg5MjAyYzY0NDg1YjkyOGYyMWYxZDExZDZhNGE1ODU1MDkwM2EyNzJiZGJkOTkzNDM0YWJkYzgyZWZmMjkJMTY2MjUxOTk3OTYyNQkyMDQyOTNiYmM5MjYwYmMwMTljMTgwZWIwOWY4NjQ5NmJmMjY0MGYxNmVjNzhmZmJiNWU3YzJkMTk0MjhhZjU4",
+    "ODQ5ODkyMDJjNjQ0ODViOTI4ZjIxZjFkMTFkNmE0YTU4NTUwOTAzYTI3MmJkYmQ5OTM0MzRhYmRjODJlZmYyOQliZTVmOGVkNGI5MzM2MDQzMTIwZWM4OTM5OTQyZDMyMzRiZWZhZmU4Y2EyNjE5NGNmMmJiNmE0OWU2ZTRjODlkCTE2NjI1NzA5MDgwMjUJY2IyNDhlMzE1YjM1NzViZDE1N2RiOWFmNjI3NTNlY2IyNGI3NDhkYzY1NWRmYzQwNzk0YjljMTcwMWMxYjk1Mw\u003d\u003d",
+    "YmU1ZjhlZDRiOTMzNjA0MzEyMGVjODkzOTk0MmQzMjM0YmVmYWZlOGNhMjYxOTRjZjJiYjZhNDllNmU0Yzg5ZAk1NzAxNzMzZGU1ZWNlYWU4YWY1MjY1NjBjOGM4NGRiNDJkNGQ0MjE5N2M5OWExYWUyOTVhMzZiNjAxMDY0M2QyCTE2NjI1NzA5NzcxMDkJZjY0NTIyNzUwMWNhNDY4MGUwMWQ0MzQyMGJlZWE1MzllOGYzNzI2ZDA3NTk4MWI5MmE2OThhMDZmMjg1ZmUxNQ\u003d\u003d"
   ]
 }
